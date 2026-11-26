@@ -30,11 +30,13 @@ The command that follows, its parts: `<protocol>/<action> <URI>
 
 ## Returns
 
-- A URI that names one position: what the command returns: executed
-  here, its value; sent on, the response of the mrepo it was sent to.
-- A URI that selects (a `*` or a filter in it): a list, what the command
-  gave at each position, in order: `[{ "at": "swarms/swarm-1", "value":
-  ... }]`. Nothing selected: an empty list.
+- A URI that names one position: what the command says: executed here,
+  its own answer (its message, its attachments); sent on, what the mrepo
+  it was sent to returned.
+- A URI that selects (a `*` or a filter in it): `Run at <n> positions.`,
+  then what the command said at each, in order, each under its position
+  (`== swarms/swarm-1`); their attachments together. Nothing selected:
+  said, `No position selected by <URI>: nothing run.`, not an error.
 
 ## Errors
 
