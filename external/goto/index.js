@@ -8,11 +8,6 @@ export async function goto (exec, { uri, args = [] }) {
   if (!args.length) throw new Error('missing argument: command')
   const whole = joined(segmented(uri))
   const command = args.join(' ')
-  // the mrepo itself, above its layers: its own commands, executed here
-  if (whole === ROOT) {
-    exec.log('verbose', 'executed here', `Executed here, at the mrepo itself: ${command}`)
-    return exec.run(args, { at: positionOf(uri) })
-  }
   if (whole !== MAIN && !whole.startsWith(`${MAIN}/`)) throw new Error(`not a position in main: ${whole} (main, main/<position>)`)
   const result = await query(exec, uri)
   const found = await result.all()

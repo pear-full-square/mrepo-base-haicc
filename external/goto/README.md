@@ -67,7 +67,7 @@ The command that follows, its parts: `<protocol>/<action> <URI>
 - **At an ordinary node** the command is executed here, in the context of
   the position: forward visibility only, nothing above it is reachable.
   The command that follows stands at the position: its URI is read
-  behind the position, as its prefix. A position is a folder in `main`;
-  the mrepo itself (`.` written at its root) is one for its own commands.
+  behind the position, as its prefix. A position is a folder in `main`
+  (`.`: main itself), for the mrepo's own commands as for anyone's.
 - **A command is a map over the positions**: the same command at each,
   one after the other, in this one request.
