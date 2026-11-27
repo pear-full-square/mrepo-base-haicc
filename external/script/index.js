@@ -18,7 +18,7 @@ export async function runLines (exec, text, uri) {
   const at = positionAt(uri)
   exec.log('verbose', 'script', `A script at ${at}: ${lines.length} ${lines.length === 1 ? 'line' : 'lines'}, each a request of its own.`)
   return exec.wait(async () => {
-    const ran = await run({ dir: exec.runtime.dir, uri: exec.runtime.uri, submit: exec.runtime.submit, answer: exec.runtime.answer }, lines, at)
+    const ran = await run({ dir: exec.runtime.dir, uri: exec.runtime.uri, submit: exec.runtime.submit, answer: exec.runtime.answer, types: exec.runtime.types }, lines, at)
     return { message: [`Ran ${ran.length} ${ran.length === 1 ? 'line' : 'lines'} at ${at}.`, ...ran.map(r => `> ${r.line}\n${r.returned.message}`)].join('\n\n'), attachments: ran.flatMap(r => r.returned.attachments) }
   })
 }
